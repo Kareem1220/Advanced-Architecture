@@ -1,0 +1,73 @@
+{
+  "performance": {
+    "CPU": {
+      "latency_ms": 7.001030014362186,
+      "energy_joules": 0.17502575035905465,
+      "throughput_qps": 142.83612524850787
+    },
+    "GPU": {
+      "latency_ms": 6.782880029641092,
+      "energy_joules": 0.5426304023712873,
+      "throughput_qps": 147.42999959162094
+    },
+    "ANN": {
+      "latency_ms": 1.5911199850961566,
+      "energy_joules": 0.03182239970192313,
+      "throughput_qps": 628.4881148919557
+    },
+    "NM-RAG": {
+      "latency_ms": 0.478124,
+      "energy_joules": 0.0014343720000000002,
+      "throughput_qps": 2091.507642368925,
+      "hardware_stats": {
+        "latency_ms": 0.478124,
+        "energy_joules": 0.0014343720000000002,
+        "throughput_qps": 2091.507642368925,
+        "total_cycles": 478124.0,
+        "bandwidth_utilized_gbps": 26.771297822322243,
+        "bandwidth_efficiency": 2.9745886469246936,
+        "num_documents": 100000.0,
+        "num_queries": 1.0,
+        "k": 100.0
+      }
+    }
+  },
+  "quality": {
+    "CPU": {
+      "Recall@10": 0.09999999999999998,
+      "Precision@10": 1.0,
+      "nDCG@10": 1.0,
+      "Recall@100": 1.0,
+      "Precision@100": 1.0,
+      "nDCG@100": 1.0,
+      "MRR": 1.0
+    },
+    "GPU": {
+      "Recall@10": 0.09999999999999998,
+      "Precision@10": 1.0,
+      "nDCG@10": 1.0,
+      "Recall@100": 1.0,
+      "Precision@100": 1.0,
+      "nDCG@100": 1.0,
+      "MRR": 1.0
+    },
+    "ANN": {
+      "Recall@10": 0.09999999999999998,
+      "Precision@10": 1.0,
+      "nDCG@10": 1.0,
+      "Recall@100": 0.298,
+      "Precision@100": 0.298,
+      "nDCG@100": 0.43416450596006056,
+      "MRR": 1.0
+    },
+    "NM-RAG": {
+      "Recall@10": 0.09999999999999998,
+      "Precision@10": 1.0,
+      "nDCG@10": 1.0,
+      "Recall@100": 0.7563999999999999,
+      "Precision@100": 0.7563999999999999,
+      "nDCG@100": 0.809900277052552,
+      "MRR": 1.0
+    }
+  }
+}

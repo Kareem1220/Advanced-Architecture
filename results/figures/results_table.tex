@@ -1,0 +1,18 @@
+\begin{table}[H]
+    \centering
+    \caption{Performance Comparison of RAG Acceleration Methods}
+    \label{tab:results}
+    \begin{tabular}{|l|c|c|c|c|}
+        \hline
+        \textbf{Method} & \textbf{Latency (ms)} & \textbf{Energy (J)} & \textbf{Recall@100} & \textbf{MRR} \\
+        \hline
+        CPU & 7.00 & 0.18 & 100.0\% & 1.0000 \\
+        \hline
+        GPU & 6.78 & 0.54 & 100.0\% & 1.0000 \\
+        \hline
+        ANN & 1.59 & 0.03 & 29.8\% & 1.0000 \\
+        \hline
+        NM-RAG & 0.48 & 0.00 & 75.6\% & 1.0000 \\
+        \hline
+    \end{tabular}
+\end{table}

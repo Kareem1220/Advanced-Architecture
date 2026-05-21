@@ -1,0 +1,146 @@
+INFO:__main__:Running experiments with 100000 documents and 100 queries
+INFO:__main__:
+================================================================================
+INFO:__main__:STARTING ALL EXPERIMENTS
+INFO:__main__:================================================================================
+INFO:__main__:Generating synthetic dataset: 100000 docs, 100 queries
+INFO:__main__:
+============================================================
+INFO:__main__:Running CPU Baseline Experiments
+INFO:__main__:============================================================
+INFO:rag_baseline:Initialized CPU baseline with exact search
+INFO:rag_baseline:Added 100000 documents to CPU index
+INFO:__main__:CPU Latency: 7.38 ms
+INFO:__main__:CPU Energy: 0.1845 J/query
+INFO:__main__:
+============================================================
+INFO:__main__:Running GPU Baseline Experiments
+INFO:__main__:============================================================
+WARNING:rag_baseline:No GPU available, falling back to CPU
+INFO:rag_baseline:Added 100000 documents to CPU index
+INFO:__main__:GPU Latency: 7.64 ms
+INFO:__main__:GPU Energy: 0.6109 J/query
+INFO:__main__:
+============================================================
+INFO:__main__:Running ANN (HNSW) Baseline Experiments
+INFO:__main__:============================================================
+INFO:rag_baseline:Initialized ANN baseline (HNSW) with M=32, efConstruction=200
+INFO:rag_baseline:Added 100000 documents to HNSW index
+INFO:__main__:ANN Latency: 1.97 ms
+INFO:__main__:ANN Energy: 0.0393 J/query
+INFO:__main__:
+============================================================
+INFO:__main__:Running NM-RAG Accelerator Simulation
+INFO:__main__:============================================================
+INFO:__main__:Training quantizer...
+INFO:quantization:Training simple quantizer: 384D -> 128D
+INFO:quantization:Variance retained: 40.96%
+INFO:__main__:Quantizing embeddings...
+INFO:quantization:Evaluating quantization quality with 20 queries...
+INFO:quantization:Quantization quality - Recall@100: 46.70%, Similarity correlation: 0.7311
+INFO:__main__:Initializing NM-RAG accelerator...
+INFO:hardware_model:Initialized NM-RAG Accelerator:
+INFO:hardware_model:  - Compute units: 64
+INFO:hardware_model:  - Clock frequency: 1.0 GHz
+INFO:hardware_model:  - Embedding dimension: 128
+INFO:hardware_model:  - Vector width: 256 bits
+INFO:hardware_model:  - HBM bandwidth: 900 GB/s
+INFO:hardware_model:  - Power: 3.0 W
+INFO:hardware_model:Added 100000 quantized documents to NM-RAG
+INFO:__main__:NM-RAG Latency: 0.01 ms
+INFO:__main__:NM-RAG Energy: 0.0000 J/query
+INFO:__main__:Quantization Quality - Recall: 46.70%
+INFO:__main__:
+============================================================
+INFO:__main__:Evaluating Retrieval Quality
+INFO:__main__:============================================================
+INFO:__main__:
+============================================================
+INFO:__main__:COMPREHENSIVE COMPARISON TABLE
+INFO:__main__:============================================================
+INFO:__main__:
+Results saved to: ../results\comparison_table.csv
+INFO:__main__:Detailed results saved to: ../results\detailed_results.json
+INFO:__main__:
+================================================================================
+INFO:__main__:ALL EXPERIMENTS COMPLETED SUCCESSFULLY
+INFO:__main__:================================================================================
+INFO:__main__:
+Experiments completed! Check the 'results' directory for outputs.
+
+============================================================
+NM-RAG ACCELERATOR PERFORMANCE SUMMARY
+============================================================
+Configuration:
+  Documents: 100,000
+  Queries: 1
+  Top-K: 100
+
+Performance Metrics:
+  Latency: 0.01 ms
+  Throughput: 159464.20 QPS
+  Energy: 0.0000 J/query
+
+Hardware Utilization:
+  Total Cycles: 6,271
+  Bandwidth Used: 2041.14 GB/s
+  Bandwidth Efficiency: 226.8%
+============================================================
+
+
+============================================================
+Evaluation Results: CPU
+============================================================
+MRR                 : 1.0000
+Precision@10        : 100.00%
+Precision@100       : 100.00%
+Recall@10           :  10.00%
+Recall@100          : 100.00%
+nDCG@10             : 100.00%
+nDCG@100            : 100.00%
+============================================================
+
+
+============================================================
+Evaluation Results: GPU
+============================================================
+MRR                 : 1.0000
+Precision@10        : 100.00%
+Precision@100       : 100.00%
+Recall@10           :  10.00%
+Recall@100          : 100.00%
+nDCG@10             : 100.00%
+nDCG@100            : 100.00%
+============================================================
+
+
+============================================================
+Evaluation Results: ANN
+============================================================
+MRR                 : 1.0000
+Precision@10        : 100.00%
+Precision@100       :  29.69%
+Recall@10           :  10.00%
+Recall@100          :  29.69%
+nDCG@10             : 100.00%
+nDCG@100            :  43.33%
+============================================================
+
+
+============================================================
+Evaluation Results: NM-RAG
+============================================================
+MRR                 : 0.4191
+Precision@10        :  17.50%
+Precision@100       :   8.70%
+Recall@10           :   1.75%
+Recall@100          :   8.70%
+nDCG@10             :  18.96%
+nDCG@100            :  10.42%
+============================================================
+
+Method Latency (ms) Energy (J) Throughput (QPS) Recall@100    MRR
+   CPU         7.38     0.1845           135.53     100.0% 1.0000
+   GPU         7.64     0.6109           130.95     100.0% 1.0000
+   ANN         1.97     0.0393           508.28      29.7% 1.0000
+NM-RAG         0.01     0.0000        159464.20       8.7% 0.4191
