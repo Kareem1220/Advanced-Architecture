@@ -1,25 +1,6 @@
 # NM-RAG: Near-Memory Computing Accelerator for RAG Systems
 
 
-
-Your IEEE conference paper is **complete** with all required components.
-
-## Quick Start
-
-### Option 1: Compile on Overleaf (RECOMMENDED)
-1. Create account at [overleaf.com](https://www.overleaf.com)
-2. Upload `NM_RAG_Paper.tex` and `results/` folder
-3. Compile automatically → Download PDF
-
-### Option 2: Compile Locally (Windows)
-```bash
-# Double-click compile.bat
-# OR run manually:
-pdflatex NM_RAG_Paper.tex
-```
-
-**See [COMPILATION_GUIDE.md](COMPILATION_GUIDE.md) for detailed instructions.**
-
 ## Project Contents
 
 ### Paper Files
